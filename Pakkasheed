@@ -1,7 +1,99 @@
+repeat wait() until game:IsLoaded()
+	if getgenv().Setting then else
+		getgenv().Setting = {
+		    ["Join Team"] = "Pirate"
+		}
+	end
+	
+	if not game:IsLoaded() then game.Loaded:Wait() end
+	repeat wait() until game.Players
+	repeat wait() until game.Players.LocalPlayer
+	repeat wait() until game.ReplicatedStorage
+	repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+	repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+	repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+	repeat wait()
+		if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+			if getgenv().Setting["Join Team"] == "Pirate" then
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Size = UDim2.new(0, 10000, 0, 10000)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Position = UDim2.new(-4, 0, -5, 0)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.BackgroundTransparency = 1
+				wait(.5)
+				game:GetService'VirtualUser':Button1Down(Vector2.new(99,99))
+				game:GetService'VirtualUser':Button1Up(Vector2.new(99,99))
+			elseif getgenv().Setting["Join Team"] == "Marine" then
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Size = UDim2.new(0, 10000, 0, 10000)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Position = UDim2.new(-4, 0, -5, 0)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.BackgroundTransparency = 1
+				wait(.5)
+				game:GetService'VirtualUser':Button1Down(Vector2.new(99,99))
+				game:GetService'VirtualUser':Button1Up(Vector2.new(99,99))
+			else
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Size = UDim2.new(0, 10000, 0, 10000)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Position = UDim2.new(-4, 0, -5, 0)
+				game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.BackgroundTransparency = 1
+				wait(.5)
+				game:GetService'VirtualUser':Button1Down(Vector2.new(99,99))
+				game:GetService'VirtualUser':Button1Up(Vector2.new(99,99))
+			end
+		end
+	until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() 
+repeat wait(1) until game:IsLoaded()
+local colors = {
+    SchemeColor = Color3.fromRGB(153 ,21, 255),
+    Background = Color3.fromRGB(0 ,0, 0),
+    Header = Color3.fromRGB(0 ,0, 0),
+    TextColor = Color3.fromRGB(255 ,255 ,255),
+    ElementColor = Color3.fromRGB(0 ,0 , 0)
+} 
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Kaitan Tool By Pakkasheed (! Piwwy#0909)", colors)
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Funny func")
+Section:NewButton("Collect Chest", "By ! Piwwy#0909", function()
+--Brought To You By freerobloxscripts.com | Best Website For Roblox Scripts--
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/chestfarm"))()
+end)
+
+local Section = Tab:NewSection("CheckItem ( 15 Second Check)")
+Section:NewButton("CheckItem ( Summer Theme )", "By ! Piwwy#0909", function()
+PraviteKus = "Pravite Only"
+__Config = {
+      ['Inventory'] = {
+         ['Fillter'] = {
+            ['Mythical'] = true,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Mythical
+            ['Legendary'] = true,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Legendary
+            ['Rare'] = false,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Rare
+            ['Uncommon'] = false, -- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Uncommon
+         },
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คของในกล่อง
+      },
+      ['Malee'] = {
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คหมัด
+      },
+      ['AwakeningToggler'] = {
+         ['Enabled'] = true -- ถ้าเป็น false จะไม่เช็คสกิลผลตื่น
+      },
+      ['Money'] = {
+         ['Enabled'] = true -- ถ้าเป็น false จะไม่เช็คเงิน แและ เงินม่วง
+      },
+      ['Fruit'] = {
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คผล
+         ['Fillter'] = { 
+            ['Cost'] = 1000000
+         },
+        ['Permanent'] = true
+      },
+  ['RTX'] = {
+      ['Enabled'] = true, -- ถ้าเป็น false ไม่มี RTX
+      ['Mode'] = 'Autumn' -- Autumn | Summer | Winter 
+  }
+   }
 if __Config['RTX']['Mode'] then 
       local a = game.Lighting
 	a.Ambient = Color3.fromRGB(33, 33, 33)
-	a.Brightness = 6.67
+	a.Brightness = 1.67
 	a.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
 	a.ColorShift_Top = Color3.fromRGB(255, 247, 237)
 	a.EnvironmentDiffuseScale = 0.105
@@ -26,10 +118,10 @@ if __Config['RTX']['Mode'] then
 		c.TintColor = Color3.fromRGB(255, 220, 148)
 	elseif __Config['RTX']['Mode'] == "Autumn" then
 		c.TintColor = Color3.fromRGB(217, 145, 57)
-	elseif __Config['RTX']['Mode'] == 'Cold' then 
-		c.TintColor = Color3.fromRGB(0, 215, 255)
+	elseif __Config['RTX']['Mode'] == 'Winter' then 
+		c.TintColor = Color3.fromRGB(0, 0, 0)
 	else 
-		c.TintColor = Color3.fromRGB(217, 145, 57)
+		c.TintColor = Color3.fromRGB(0, 0, 0)
 	end
 	local d = Instance.new("DepthOfFieldEffect", a)
 	d.Enabled = true
@@ -165,7 +257,7 @@ end
 local ItemChecker = Instance.new("ScreenGui")
 local MaleeFrame = Instance.new("Frame")
 local InventoryFrame = Instance.new("Frame")
-local PostionX = 0
+local PostionX = 4.85
 
 
 ItemChecker.Name = "ItemChecker"
@@ -222,7 +314,7 @@ if __Config['Inventory']['Enabled'] then
    wait(3)
    local PostionXInv = 0
    local ItemCount = 0
-   local PostionYInv = 1.4
+   local PostionYInv = 0
    for c, j in pairs(__Config['Inventory']['Fillter']) do
       for i, v in pairs( game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Stored.ScrollingFrame.Frame:GetChildren()) do
          if v:IsA('ImageButton')  then
@@ -235,8 +327,8 @@ if __Config['Inventory']['Enabled'] then
                   item.Size = UDim2.new(0.9, 0, 0.9, 0)
                   PostionXInv = PostionXInv + 0.92
                   ItemCount = ItemCount + 1
-                  if ItemCount >= 11 then
-                     PostionYInv = PostionYInv + 0.9
+                  if ItemCount >= 5 then
+                     PostionYInv = PostionYInv + 0.8
                      ItemCount = 0
                      PostionXInv = 0
                   end
@@ -257,8 +349,8 @@ if __Config['Inventory']['Enabled'] then
                   item.Size = UDim2.new(0.9, 0, 0.9, 0)
                   PostionXInv = PostionXInv + 0.92
                   ItemCount = ItemCount + 1
-                  if ItemCount >= 11 then
-                     PostionYInv = PostionYInv + 0.9
+                  if ItemCount >= 6 then
+                     PostionYInv = PostionYInv + 0.8
                      ItemCount = 0
                      PostionXInv = 0
                   end
@@ -284,8 +376,8 @@ if __Config['AwakeningToggler']['Enabled'] then
    wait(2)
    AwakeningToggler = game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler:Clone()
    AwakeningToggler.Parent = ItemChecker
-   AwakeningToggler.Position = UDim2.new(0.8, 0, 0.11, 0)
-   AwakeningToggler.Size =  UDim2.new(0.379635453, 0, 0.275648952, 0)
+   AwakeningToggler.Position = UDim2.new(0.8123354, 2, 0.13, 2)
+   AwakeningToggler.Size =  UDim2.new(0.2814, 0, 0.23548456, 0)
    game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = false
    for i, v in pairs(AwakeningToggler:GetChildren()) do
       if  v:IsA('Frame') or v:IsA('TextLabel') then
@@ -301,15 +393,11 @@ end
 
 if __Config['Money']['Enabled'] then
 
-   local Beil = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli:Clone()
-   Beil.Parent = ItemChecker
-   Beil.Position = UDim2.new(0.43683219, 0, 0.823238552, 0)
-   Beil.Size = UDim2.new(0.125707105, 0, 0.0618046969, 0)
    local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
    Fragments.Parent = ItemChecker
    Fragments.Position = UDim2.new(0.43683219, 0, 0.783238552, 0)
    Fragments.Size = UDim2.new(0.125707105, 0, 0.0618046969, 0)
-   Fragments.Text = 'ƒ' .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+   Fragments.Text = 'By ! Piwwy#0909 ƒเงินม่วง --> '.. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
 end
 local FruitFrame = Instance.new("Frame")
 
@@ -333,7 +421,7 @@ if __Config['Fruit']['Enabled'] then
    wait(3)
    local PostionXInvCuurect = 2.93683219
    local ItemCountCuurect = 0
-   local PostionYInvCuurect = 4.683238552
+   local PostionYInvCuurect = 5.3
    local args = {
             [1] = "getInventoryFruits"
         }
@@ -380,7 +468,453 @@ FruitPermanentFrame.BackgroundTransparency = 1.000
 FruitPermanentFrame.BorderSizePixel = 0
 FruitPermanentFrame.Size = UDim2.new(0, 100, 0, 100)
 local TableFruitP = {}
-local PostionYInvFruit = 1.97000003
+local PostionYInvFruit = 1
+if __Config['Fruit']['Permanent'] then 
+    local args = {
+        [1] = "GetFruits",
+        [2] = false
+    }
+    remote = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    for i, v in pairs(remote) do
+            if v['HasPermanent'] then 
+                    table.insert(TableFruitP, {
+                        ['Name'] = v['Name']
+                    })
+            end
+    end
+     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.BackgroundTransparency = 1 
+     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Left.Visible = false
+     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+     repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Left.Center.ScrollingFrame.Container:FindFirstChild("Bomb-Bomb")
+     if #TableFruitP >= 4 then 
+        PostionYSalceF = 0.5     
+     end
+    
+     wait(1)
+     for i, v in pairs(TableFruitP) do 
+         Assets = game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Left.Center.ScrollingFrame.Container:FindFirstChild(v['Name']):Clone()
+         Assets.Parent = FruitPermanentFrame
+         Assets.Position = UDim2.new(11.3400002, 0, PostionYInvFruit, 0)
+         Assets.Size = UDim2.new(4.57000017, 0, PostionYSalceF, 0)
+         PostionYInvFruit = PostionYInvFruit + 1
+     end
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = false
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.BackgroundTransparency = 1 
+     game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Left.Visible = true
+end
+end)
+Section:NewButton("CheckItem ( Winter Theme )", "By ! Piwwy#0909", function()
+PraviteKus = "Pravite Only"
+__Config = {
+      ['Inventory'] = {
+         ['Fillter'] = {
+            ['Mythical'] = true,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Mythical
+            ['Legendary'] = true,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Legendary
+            ['Rare'] = false,-- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Rare
+            ['Uncommon'] = false, -- ถ้าเป็น false จะไม่เช็คของในกล่อง ระดับ Uncommon
+         },
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คของในกล่อง
+      },
+      ['Malee'] = {
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คหมัด
+      },
+      ['AwakeningToggler'] = {
+         ['Enabled'] = true -- ถ้าเป็น false จะไม่เช็คสกิลผลตื่น
+      },
+      ['Money'] = {
+         ['Enabled'] = true -- ถ้าเป็น false จะไม่เช็คเงิน แและ เงินม่วง
+      },
+      ['Fruit'] = {
+         ['Enabled'] = true, -- ถ้าเป็น false จะไม่เช็คผล
+         ['Fillter'] = { 
+            ['Cost'] = 1000000
+         },
+        ['Permanent'] = true
+      },
+  ['RTX'] = {
+      ['Enabled'] = true, -- ถ้าเป็น false ไม่มี RTX
+      ['Mode'] = 'Summer' -- Autumn | Summer | Winter 
+  }
+   }
+if __Config['RTX']['Mode'] then 
+      local a = game.Lighting
+	a.Ambient = Color3.fromRGB(33, 33, 33)
+	a.Brightness = 5.2184
+	a.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
+	a.ColorShift_Top = Color3.fromRGB(214, 234, 248)
+	a.EnvironmentDiffuseScale = 0.105
+	a.EnvironmentSpecularScale = 0.522
+	a.GlobalShadows = true
+	a.OutdoorAmbient = Color3.fromRGB(51, 54, 67)
+	a.ShadowSoftness = 0.04
+	a.GeographicLatitude = -10.525
+	a.ExposureCompensation = 0.75
+	local b = Instance.new("BloomEffect", a)
+	b.Enabled = true
+	b.Intensity = 0.04
+	b.Size = 1900
+	b.Threshold = 0.915
+	local c = Instance.new("ColorCorrectionEffect", a)
+	c.Brightness = 0.076
+	c.Contrast = 0.29
+	c.Enabled = true
+	c.Saturation = 0.1
+	c.TintColor = Color3.fromRGB(217, 145, 57)
+	if __Config['RTX']['Mode'] == "Summer" then
+		c.TintColor = Color3.fromRGB(255, 248, 233)
+	elseif __Config['RTX']['Mode'] == "Autumn" then
+		c.TintColor = Color3.fromRGB(217, 145, 57)
+	elseif __Config['RTX']['Mode'] == 'Winter' then 
+		c.TintColor = Color3.fromRGB(0, 205, 255)
+	else 
+		c.TintColor = Color3.fromRGB(200, 100, 50)
+	end
+	local d = Instance.new("DepthOfFieldEffect", a)
+	d.Enabled = true
+	d.FarIntensity = 0.077
+	d.FocusDistance = 15.90
+	d.InFocusRadius = 16.50
+	d.NearIntensity = 0.150
+	local e = Instance.new("ColorCorrectionEffect", a)
+	e.Brightness = 0
+	e.Contrast = -0.03
+	e.Saturation = 0
+	e.Enabled = true
+	e.TintColor = Color3.fromRGB(255, 247, 239)
+	local e2 = Instance.new("ColorCorrectionEffect", a)
+	e2.Brightness = 0.2
+	e2.Contrast = 0.45
+	e2.Saturation = -0.1
+	e2.Enabled = true
+	e2.TintColor = Color3.fromRGB(255, 255, 255)
+	local s = Instance.new("SunRaysEffect", a)
+	s.Enabled = true
+	s.Intensity = 0.01
+	s.Spread = 0.146
+end
+local function formatNumber(number)
+   local i, k, j = tostring(number):match("(%-?%d?)(%d*)(%.?.*)")
+   return i..k:reverse():gsub("(%d%d%d)", "%1,"):reverse()..j
+end
+
+
+local ItemCheckerOld = game.CoreGui:FindFirstChild('ItemChecker')
+if ItemCheckerOld then
+   ItemCheckerOld:Destroy()
+end
+
+local args = {
+   [1] = "BuyDragonTalon",
+   [2] = true
+}
+
+BuyDragonTalon = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)))
+
+if BuyDragonTalon then
+   if BuyDragonTalon == 1 then
+      HasTalon = true
+   end
+end
+
+local args = {
+   [1] = "BuySuperhuman",
+   [2] = true
+}
+
+BuySuperhuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)))
+
+if BuySuperhuman then
+   if BuySuperhuman == 1 then
+      HasSuperhuman = true
+   end
+end
+-- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+   [1] = "BuySharkmanKarate",
+   [2] = true
+}
+
+BuySharkmanKarate = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)))
+if BuySharkmanKarate then
+   if BuySharkmanKarate == 1 then
+      HasKarate = true
+   end
+end
+
+
+local args = {
+   [1] = "BuyDeathStep",
+   [2] = true
+}
+
+BuyDeathStep = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)))
+
+if BuyDeathStep then
+   if BuyDeathStep == 1 then
+      HasDeathStep = true
+   end
+end
+
+
+local args = {
+   [1] = "BuyElectricClaw",
+   [2] = true
+}
+
+BuyElectricClaw = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)))
+if BuyElectricClaw then
+   if BuyElectricClaw == 1 then
+      HasElectricClaw = true
+   end
+end
+
+local data = {}
+if HasElectricClaw then
+   table.insert(data, {
+      ['Name'] = 'ElectricClaw',
+      ['AssetID'] = '6866994470'
+   })
+end
+if HasTalon then
+   table.insert(data, {
+      ['Name'] = 'Dragon Talon',
+      ['AssetID'] = '7831677967'
+   })
+end
+if HasSuperhuman then
+   table.insert(data, {
+      ['Name'] = 'Superhuman',
+      ['AssetID'] = '4831781711'
+   })
+end
+if HasKarate then
+   table.insert(data, {
+      ['Name'] = 'Sharkman Karate',
+      ['AssetID'] = '6525157144'
+   })
+end
+if HasDeathStep then
+   table.insert(data, {
+      ['Name'] = 'Death Step',
+      ['AssetID'] = '6085350468'
+   })
+end
+local ItemChecker = Instance.new("ScreenGui")
+local MaleeFrame = Instance.new("Frame")
+local InventoryFrame = Instance.new("Frame")
+local PostionX = 4.85
+
+
+ItemChecker.Name = "ItemChecker"
+ItemChecker.Parent = game.CoreGui
+ItemChecker.Enabled = true
+ItemChecker.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+
+
+InventoryFrame.Name = "InventoryFrame"
+InventoryFrame.Parent = ItemChecker
+InventoryFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InventoryFrame.BackgroundTransparency = 1.000
+InventoryFrame.BorderSizePixel = 0
+InventoryFrame.Size = UDim2.new(0.0628535524, 0, 0.123609394, 0)
+
+
+
+MaleeFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MaleeFrame.BackgroundTransparency = 1.000
+MaleeFrame.BorderSizePixel = 0
+MaleeFrame.Size = UDim2.new(0.0628535524, 0, 0.123609394, 0)
+
+MaleeFrame.Name = "MaleeFrame"
+MaleeFrame.Parent = ItemChecker
+MaleeFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MaleeFrame.BackgroundTransparency = 1.000
+MaleeFrame.BorderSizePixel = 0
+MaleeFrame.Size = UDim2.new(0.0628535524, 0, 0.123609394, 0)
+
+
+
+if __Config['Malee']['Enabled'] then
+   for i, v in pairs(data) do
+      local Assets = Instance.new("ImageLabel")
+
+      Assets.Name = v.Name
+      Assets.Parent = MaleeFrame
+      Assets.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+      Assets.BackgroundTransparency = 1
+      Assets.BorderSizePixel = 0
+      Assets.Size = UDim2.new(1.1, 0, 1.1, 0)
+      Assets.Image = 'rbxassetid://' .. v.AssetID
+      Assets.Position =  UDim2.new(PostionX, 0, 0, 0)
+      PostionX =  PostionX + 1.13
+   end
+end
+if __Config['Inventory']['Enabled'] then
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Title.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Info.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.BackgroundTransparency = 1
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = true
+   wait(3)
+   local PostionXInv = 0
+   local ItemCount = 0
+   local PostionYInv = 0
+   for c, j in pairs(__Config['Inventory']['Fillter']) do
+      for i, v in pairs( game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Stored.ScrollingFrame.Frame:GetChildren()) do
+         if v:IsA('ImageButton')  then
+            if  v.Name == 'Template'   then
+            else
+               if string.lower(v.Title.TextLabel.Text) == string.lower(c) and j then
+                  item = v:Clone()
+                  item.Parent = InventoryFrame
+                  item.Position = UDim2.new(PostionXInv, 0, PostionYInv, 0)
+                  item.Size = UDim2.new(0.9, 0, 0.9, 0)
+                  PostionXInv = PostionXInv + 0.92
+                  ItemCount = ItemCount + 1
+                  if ItemCount >= 5 then
+                     PostionYInv = PostionYInv + 0.8
+                     ItemCount = 0
+                     PostionXInv = 0
+                  end
+               end
+            end
+         end
+      end
+   end
+    for c, j in pairs(__Config['Inventory']['Fillter']) do
+      for i, v in pairs( game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Current.ScrollingFrame.Frame:GetChildren()) do
+         if v:IsA('ImageButton')  then
+            if  v.Name == 'Template'   then
+            else
+               if string.lower(v.Title.TextLabel.Text) == string.lower(c) and j then
+                  item = v:Clone()
+                  item.Parent = InventoryFrame
+                  item.Position = UDim2.new(PostionXInv, 0, PostionYInv, 0)
+                  item.Size = UDim2.new(0.9, 0, 0.9, 0)
+                  PostionXInv = PostionXInv + 0.92
+                  ItemCount = ItemCount + 1
+                  if ItemCount >= 6 then
+                     PostionYInv = PostionYInv + 0.8
+                     ItemCount = 0
+                     PostionXInv = 0
+                  end
+               end
+            end
+         end
+      end
+   end
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Title.Visible = true
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Visible = true
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Info.Visible = true
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.BackgroundTransparency = 0
+end
+
+if __Config['AwakeningToggler']['Enabled'] then
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+   for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler:GetChildren()) do
+      if  v:IsA('Frame') or v:IsA('TextLabel') then
+         v.Visible= false
+      end
+   end
+   wait(2)
+   AwakeningToggler = game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler:Clone()
+   AwakeningToggler.Parent = ItemChecker
+   AwakeningToggler.Position = UDim2.new(0.8123354, 2, 0.13, 2)
+   AwakeningToggler.Size =  UDim2.new(0.2814, 0, 0.23548456, 0)
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = false
+   for i, v in pairs(AwakeningToggler:GetChildren()) do
+      if  v:IsA('Frame') or v:IsA('TextLabel') then
+         v.Visible= true
+      end
+   end
+   for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler:GetChildren()) do
+      if  v:IsA('Frame') or v:IsA('TextLabel') then
+         v.Visible= true
+      end
+   end
+end
+
+if __Config['Money']['Enabled'] then
+
+   local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+   Fragments.Parent = ItemChecker
+   Fragments.Position = UDim2.new(0.43683219, 0, 0.783238552, 0)
+   Fragments.Size = UDim2.new(0.125707105, 0, 0.0618046969, 0)
+   Fragments.Text = 'By ! Piwwy#0909 ƒเงินม่วง --> '.. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+end
+local FruitFrame = Instance.new("Frame")
+
+
+
+FruitFrame.Name = "FruitFrame"
+FruitFrame.Parent = ItemChecker
+FruitFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FruitFrame.BackgroundTransparency = 1.000
+FruitFrame.BorderSizePixel = 0
+FruitFrame.Size = UDim2.new(0.0628535524, 0, 0.123609394, 0)
+
+local TableFruitL = {}
+if __Config['Fruit']['Enabled'] then
+
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Title.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Container.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Info.Visible = false
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.BackgroundTransparency = 1
+   game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
+   wait(3)
+   local PostionXInvCuurect = 2.93683219
+   local ItemCountCuurect = 0
+   local PostionYInvCuurect = 5.3
+   local args = {
+            [1] = "getInventoryFruits"
+        }
+        
+        remote = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        for i, v in pairs(remote) do 
+            if v['Price'] >= __Config['Fruit']['Fillter']['Cost'] then 
+                   table.insert(TableFruitL, {
+                       ['Name'] = v['Name']
+                   })
+            end
+        end
+      for i, v in pairs(TableFruitL) do
+        
+                v = game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Container.Stored.ScrollingFrame.Frame:FindFirstChild(v['Name'])
+               item = v:Clone()
+               item.Parent = FruitFrame
+               item.Position = UDim2.new(PostionXInvCuurect, 0, PostionYInvCuurect, 0)
+               item.Size = UDim2.new(0.9, 0, 0.9, 0)
+               PostionXInvCuurect = PostionXInvCuurect + 0.92
+               ItemCountCuurect = ItemCountCuurect + 1
+               if ItemCountCuurect >= 11 then
+                  PostionYInvCuurect = PostionYInvCuurect + 0.9
+                  ItemCountCuurect = 0
+                  PostionXInvCuurect = 2.93683219
+
+               
+            
+         end
+      end
+      
+      
+
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = false
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Title.Visible = true
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Container.Visible = true
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Info.Visible = true
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.BackgroundTransparency = 0
+end
+local FruitPermanentFrame = Instance.new("Frame")
+FruitPermanentFrame.Parent = ItemChecker
+FruitPermanentFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FruitPermanentFrame.BackgroundTransparency = 1.000
+FruitPermanentFrame.BorderSizePixel = 0
+FruitPermanentFrame.Size = UDim2.new(0, 100, 0, 100)
+local TableFruitP = {}
+local PostionYInvFruit = 1
 if __Config['Fruit']['Permanent'] then 
     local args = {
         [1] = "GetFruits",
@@ -415,4 +949,458 @@ if __Config['Fruit']['Permanent'] then
      game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Left.Visible = true
 end
 
+end)
+local Section = Tab:NewSection("Join Team")
+Section:NewButton("Pirate", "By ! Piwwy#0909", function()
+    -- Script generated by SimpleSpy - credits to exx#9394
 
+local args = {
+    [1] = "SetTeam",
+    [2] = "Pirates"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Section:NewButton("Marine", "By ! Piwwy#0909", function()
+
+local args = {
+    [1] = "SetTeam",
+    [2] = "Marines"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Section = Tab:NewSection("Toggle UI")
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
+local Tab = Window:NewTab("Shop")
+local Section = Tab:NewSection("Buy Melee")
+Section:NewButton("Superhuman", "By ! Piwwy#0909", function()
+    	local args = {
+			[1] = "BuySuperhuman"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+Section:NewButton("Death Step", "By ! Piwwy#0909", function()
+    local args = {
+			[1] = "BuyDeathStep"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+Section:NewButton("SharkmanKarate", "By ! Piwwy#0909", function()
+    local args = {
+			[1] = "BuySharkmanKarate"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+Section:NewButton("Eletric Claw", "By ! Piwwy#0909", function()
+    local string_1 = "BuyElectricClaw";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+end)
+Section:NewButton("DragonTalon", "By ! Piwwy#0909", function()
+    local string_1 = "BuyDragonTalon";
+		local bool_1 = true;
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1, bool_1);
+		local string_1 = "BuyDragonTalon";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+    end)
+
+local Tab = Window:NewTab("Teleport")
+local Section = Tab:NewSection("Teleport Server")
+Section:NewButton("Hop Server", "By ! Piwwy#0909", function()
+ local Players = game:GetService("Players")
+ local TeleportService = game:GetService("TeleportService")
+  
+ local placeId = 4111023553 -- 
+ 
+ TeleportService:Teleport(placeId)
+end)     
+     
+Section:NewButton("Rejoin Server", "By ! Piwwy#0909", function()
+local ts = game:GetService("TeleportService")
+
+local p = game:GetService("Players").LocalPlayer
+ts:Teleport(game.PlaceId, p)
+end)
+local Section = Tab:NewSection("Teleport Sea")
+Section:NewButton("Sea 1", "By ! Piwwy#0909", function()
+local args = {
+			[1] = "TravelMain" -- OLD WORLD to NEW WORLD
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+Section:NewButton("Sea 2", "By ! Piwwy#0909", function()
+local args = {
+			[1] = "TravelDressrosa" -- NEW WORLD to OLD WORLD
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+Section:NewButton("Sea 3", "By ! Piwwy#0909", function()
+    local args = {
+			[1] = "TravelZou" -- OLD WORLD to NEW WORLD
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    ts:Teleport(game.PlaceId, p)
+end)
+
+
+local Section = Tab:NewSection("Teleport Island")
+if game.PlaceId == 2753915549 then
+Section:NewButton("Start Island", "By ! Piwwy#0909", function()
+function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(1116.89697265625, 16.30865478515625, 1481.169677734375)) 
+end)
+Section:NewButton("Middle Island", "By ! Piwwy#0909", function()
+    function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-657.2199096679688, 7.887262344360352, 1568.4906005859375)) 
+end)
+
+elseif game.PlaceId == 4442272183 then
+   Section:NewButton("Cafe", "By ! Piwwy#0909", function()
+    function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-378.4655456542969, 73.05513763427734, 291.4082336425781))
+end)
+Section:NewButton("Colosseum", "By ! Piwwy#0909", function()
+    function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-1833.0009765625, 45.829750061035156, 1369.68017578125))
+end)
+Section:NewButton("Green zone", "By ! Piwwy#0909", function()
+    function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-2070.158203125, 73.00028228759766, -2724.899658203125))
+end)
+Section:NewButton("Hot and Cold", "By  Piwwy#0909", function()
+    function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-5533.03125, 73.98685455322266, -5234.6552734375))
+end)
+Section:NewButton("Dark Arena", "By  Piwwy#0909", function()
+        function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(3807.186767578125, 14.685225486755371, -3452.28857421875))
+end)
+Section:NewButton("Ice Castle", "By  Piwwy#0909", function()
+        function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(5402.1640625, 28.226215362548828, -6238.9658203125))
+end)
+Section:NewButton("Forgotten Island(Skull)", "By  Piwwy#0909", function()
+        function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-3179.517333984375, 298.6996154785156, -10518.94921875))
+end)
+
+elseif game.PlaceId == 7449423635 then
+   Section:NewButton("Port Town", "By ! Piwwy#0909", function()
+   function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-292.566162109375, 29.447843551635742, 5403.2734375))
+end)
+   Section:NewButton("Castle On the Sea", "By ! Piwwy#0909", function()
+function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-5524.9375, 313.8040466308594, -2812.287109375))
+end)
+   Section:NewButton("Mansion", "By ! Piwwy#0909", function()
+function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-12547.162109375, 332.41326904296875, -7807.1943359375))
+end)
+   Section:NewButton("Haunted Castle", "By ! Piwwy#0909", function()
+function tweenAF2Pageaaa(gotoCFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end)
+    if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude <= 150 then
+        pcall(function() 
+            tween:Cancel()
+        end)
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = gotoCFrame
+    else
+        local tween_s = game:service"TweenService"
+        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - gotoCFrame.Position).Magnitude/300, Enum.EasingStyle.Linear)
+        local tween, err = pcall(function()
+            tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = gotoCFrame})
+            tween:Play()
+        end)
+        if not tween then return err end
+    end
+end
+
+tweenAF2Pageaaa(CFrame.new(-9503.4375, 142.139892578125, 5961.84228515625))
+end)
+end    
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("miscellaneous")
+Section:NewToggle("Setspawn", "By ! Piwwy#0909", function(state)
+    if state then
+repeat    
+        local args = {
+    [1] = "SetSpawnPoint"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+until false
+    else
+        print("Toggle Off")
+        repeat    
+        local args = {
+    [1] = "SetSpawnPoint"
+}
+wait(7)
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+until true
+    end
+end)
+Section:NewToggle("Auto random fruit", "By ! Piwwy#0909", function(state)
+    if state then
+repeat 
+
+local args = {
+    [1] = "Cousin",
+    [2] = "Buy"
+}
+wait()
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+until false
+
+        print("Toggle Off")
+
+    end
+end)
+local Section = Tab:NewSection("Dialogue")
+    Section:NewButton("Fruit Shop", "By ! Piwwy#0909", function()
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+        end)
+    Section:NewButton("Weapon Inventory", "By ! Piwwy#0909", function()
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = true
+    end)
+    Section:NewButton("Fruit Inventory", "By ! Piwwy#0909", function()
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
+end)
